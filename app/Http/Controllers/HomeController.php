@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -29,5 +30,10 @@ class HomeController extends Controller
         var_dump(auth()->user()->can('create-post'));
         die;*/
         return view('home');
+    }
+
+    public function users(Request $request)
+    {
+        return User::filter($request->all())->get();
     }
 }

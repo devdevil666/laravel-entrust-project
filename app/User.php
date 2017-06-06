@@ -2,6 +2,7 @@
 
 namespace App;
 
+use EloquentFilter\Filterable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 //use Zizaco\Entrust\Traits\EntrustUserTrait;
@@ -14,6 +15,7 @@ class User extends Authenticatable
     use CrudTrait; // <----- this
     use HasRoles; // <------ and this
     use Notifiable;
+    use Filterable;
 //    use EntrustUserTrait;
 
     /**
