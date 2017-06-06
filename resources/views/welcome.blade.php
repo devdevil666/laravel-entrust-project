@@ -63,6 +63,11 @@
                 margin-bottom: 30px;
             }
         </style>
+        <script>
+            window.Laravel = <?= json_encode([
+                'csrfToken' => csrf_token(),
+            ]); ?>
+        </script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -81,6 +86,24 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
+
+                <textarea id="my-editor" name="content" class="form-control">{!! old('content', 'test editor content') !!}</textarea>
+                <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+                <script>
+                    var options = {
+                        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+                        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token='+Laravel.csrfToken,
+                        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+                        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='+Laravel.csrfToken
+                    };
+                </script>
+                <script>
+                    CKEDITOR.replace('my-editor', options);
+                </script>
+
+
+
+
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>

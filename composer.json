@@ -15,6 +15,7 @@
         "backpack/settings": "^2.0",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
+        "unisharp/laravel-filemanager": "^1.7",
         "zizaco/entrust": "dev-laravel-5"
     },
     "require-dev": {
