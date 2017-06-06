@@ -19,3 +19,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->middleware(['role:admin|owner'])->name('home');
+
+CRUD::resource('tag', 'TagCrudController');
+
+Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Admin'], function () {
+    CRUD::resource('tag', 'TagCrudController');
+});

@@ -176,8 +176,18 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Zizaco\Entrust\EntrustServiceProvider::class
-
+        Zizaco\Entrust\EntrustServiceProvider::class,
+        /*
+        * Backpack Service Providers...
+        */
+        Backpack\Base\BaseServiceProvider::class,
+        Backpack\CRUD\CrudServiceProvider::class,
+        Backpack\PermissionManager\PermissionManagerServiceProvider::class,
+        Backpack\Settings\SettingsServiceProvider::class,
+        Backpack\LangFileManager\LangFileManagerServiceProvider::class,
+        Backpack\MenuCRUD\MenuCRUDServiceProvider::class,
+        Cviebrock\EloquentSluggable\ServiceProvider::class,
+        Backpack\PageManager\PageManagerServiceProvider::class,
     ],
 
     /*
