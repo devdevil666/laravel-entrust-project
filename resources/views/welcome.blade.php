@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Laravel</title>
 
@@ -88,22 +89,6 @@
                 </div>
 
                 <textarea id="my-editor" name="content" class="form-control">{!! old('content', 'test editor content') !!}</textarea>
-                <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
-                <script>
-                    var options = {
-                        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-                        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token='+Laravel.csrfToken,
-                        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-                        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='+Laravel.csrfToken
-                    };
-                </script>
-                <script>
-                    CKEDITOR.replace('my-editor', options);
-                </script>
-
-
-
-
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
@@ -114,5 +99,18 @@
                 </div>
             </div>
         </div>
+        <script src="{{ asset('/js/app.js') }}"></script>
+        <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+        <script>
+            var options = {
+                filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+                filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token='+token,
+                filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+                filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='+token
+            };
+        </script>
+        <script>
+            CKEDITOR.replace('my-editor', options);
+        </script>
     </body>
 </html>
