@@ -20,7 +20,7 @@ class Tag extends Model
     // public $timestamps = false;
     // protected $guarded = ['id'];
      protected $fillable = [
-         'string'
+         'string', 'is_enabled'
      ];
     // protected $hidden = [];
     // protected $dates = [];
