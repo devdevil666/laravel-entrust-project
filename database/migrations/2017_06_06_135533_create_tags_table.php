@@ -17,6 +17,7 @@ class CreateTagsTable extends Migration
             $table->increments('id');
             $table->boolean('is_enabled');
             $table->string('string');
+            $table->text('description');
             $table->timestamps();
         });
     }

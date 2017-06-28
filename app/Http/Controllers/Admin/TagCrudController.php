@@ -36,17 +36,20 @@ class TagCrudController extends CrudController
         // $this->crud->removeFields($array_of_names, 'update/create/both');
 
         $this->crud->removeField('is_enabled', 'both');
+        $this->crud->removeField('description', 'both');
         $this->crud->removeColumn('is_enabled'); // remove a column from the stack
 		       
 		
 
 		$this->crud->addField(
-			 [   // Checkbox
-			    'name' => 'is_enabled',
-			    'label' => 'Включено',
-			    'type' => 'checkbox'
-			]
-		, 'both');
+			 [   // CKEditor
+			    'name' => 'description',
+			    'label' => 'Description',
+			    'type' => 'ckeditor',
+			    // optional:
+			    'extra_plugins' => ['oembed', 'widget']
+			],
+		'both');
         // ------ CRUD COLUMNS
         $this->crud->addColumn([
 		    'name' => 'is_enabled',

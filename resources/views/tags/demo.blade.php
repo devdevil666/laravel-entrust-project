@@ -1,4 +1,4 @@
-@extends('vendor.backpack.crud.list');
+@extends('vendor.backpack.crud.list')
 
 @section('content')
 <!-- Default box -->
